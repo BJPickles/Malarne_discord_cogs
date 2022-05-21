@@ -456,7 +456,7 @@ class Leveler(commands.Cog):
         """Show the list of roles in the order which you get them from experience."""
         emb = discord.Embed()
         emb.title = _("List of roles configured for this server.")
-        emb.description = _("Guaranteed 100% almost no bugs.")
+        emb.description = _("Guaranteed 100% almost no bugs... Almost...")
         tmp = 0
         emblist = []
         roles = await self.profiles._get_guild_roles(ctx.guild)
@@ -605,13 +605,13 @@ class Leveler(commands.Cog):
         if member is None:
             member = ctx.message.author
         if await self.profiles._is_registered(member):
-            await self.profiles._set_exp(member, 5 * ((level - 1) ** 2) + (50 * (level - 1)) + 100)
+            await self.profiles._set_exp(member, 5 * ((level - 1) ** 2) + (50 * (level - 1)) + 1000)
         else:
             await ctx.send(_("That user is not registered."))
         await ctx.send(member.name + _(" Level set to ") + str(level))
 
     @levelerset.command()
-    @commands.has_any_role('Moderator', '91AR Subcommander', 'Developer', 'Mod Team')
+    @commands.has_any_role('Moderator', '91AR Subcommander', 'Developer', 'Mod Team', 'Corporal', 'Lieutenant')
     @commands.guild_only()
     async def setxp(self, ctx, xp: int, member: discord.Member = None):
         """Modify an user's xp."""
@@ -630,7 +630,7 @@ class Leveler(commands.Cog):
         """Allow you to set a default background for your server members."""
         bg = re.findall(r"(?:http\:|https\:)?\/\/.*\.(?:png|jpg|gif)", url)
         if not bg:
-            await ctx.send(_("Please give a direct link to an image on format png, jpg or gif !"))
+            await ctx.send(_("Please give a direct link to an image on format png, jpg or gif!"))
         else:
             background = bg[0]
             await self.profiles._set_guild_background(ctx.guild, background)
