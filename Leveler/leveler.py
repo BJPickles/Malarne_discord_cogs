@@ -163,7 +163,7 @@ class Leveler(commands.Cog):
         img.paste(nameplate, (155, 10), nameplate)
         img.paste(xptot, (15, 340), xptot)
 
-        fontpath = str(bundled_data_path(self) / "origintech.ttf")
+        fontpath = str(bundled_data_path(self) / "beyondmars.ttf")
 
         font1 = ImageFont.truetype(fontpath, 18)
         font2 = ImageFont.truetype(fontpath, 22)
@@ -628,7 +628,7 @@ class Leveler(commands.Cog):
     @commands.guild_only()
     async def defaultbackground(self, ctx, url):
         """Allow you to set a default background for your server members."""
-        bg = re.findall(r"(?:http\:|https\:)?\/\/.*\.(?:png|jpg|gif|mp4)", url)
+        bg = re.findall(r"(?:http\:|https\:)?\/\/.*\.(?:png|jpg|gif)", url)
         if not bg:
             await ctx.send(_("Please give a direct link to an image on format png, jpg or gif !"))
         else:
