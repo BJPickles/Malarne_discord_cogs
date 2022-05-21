@@ -23,4 +23,4 @@ NB2: you can customize your profile using profileset !
 
 ---
 
-Note that this is using different cog permissions to allow various roles to setxp for a very specific usecase. Most notably for the 91AR Discord. Specifically: ```@commands.has_any_role('Moderator', '91AR Subcommander', 'Developer', 'Mod Team')```.
+Note that this is using different cog permissions to allow various roles to setxp for a very specific usecase. Most notably for the 91AR Discord. Specifically: ```@commands.has_any_role('Moderator', '91AR Subcommander', 'Developer', 'Mod Team')```. :)
