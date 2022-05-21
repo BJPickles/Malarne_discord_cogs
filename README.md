@@ -2,11 +2,11 @@
 
 Install guide:
 
-`[p]repo add MalarneCogs https://github.com/Malarne/discord_cogs`
+`[p]repo add BJMalarneCogs https://github.com/BJPickles/Malarne_discord_cogs`
 
 then:
 
-`[p]cog install MalarneCogs WhatYouWant`
+`[p]cog install BJMalarneCogs WhatYouWant`
 
 Enjoy
 
