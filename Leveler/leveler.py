@@ -373,7 +373,7 @@ class Leveler(commands.Cog):
         await ctx.send(embed=emb)
 
     @commands.group()
-    @checks.mod_or_permissions(manage_messages=True)
+    @commands.has_any_role('Moderator', '91AR Subcommander', 'Developer', 'Mod Team')
     @commands.guild_only()
     async def levelerset(self, ctx):
         """Configuration commands."""
