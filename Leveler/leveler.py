@@ -628,7 +628,7 @@ class Leveler(commands.Cog):
     @commands.guild_only()
     async def defaultbackground(self, ctx, url):
         """Allow you to set a default background for your server members."""
-        bg = re.findall(r"(?:http\:|https\:)?\/\/.*\.(?:png|jpg|gif)", url)
+        bg = re.findall(r"(?:http\:|https\:)?\/\/.*\.(?:png|jpg|gif|mp4)", url)
         if not bg:
             await ctx.send(_("Please give a direct link to an image on format png, jpg or gif !"))
         else:
