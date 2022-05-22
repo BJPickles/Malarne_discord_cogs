@@ -180,7 +180,7 @@ class Leveler(commands.Cog):
         xpbar = self.add_corners(Image.new("RGBA", (b_offset, 20), usercolor), 10)
         img.paste(xpbar, (12, 340), xpbar)
 
-        lvl_str = _("Level:")
+        lvl_str = _("Rank:")
         ldb_str = _("Leaderboard:")
         rank_str = _("Role:")
         prog_str = _("Progress:")
