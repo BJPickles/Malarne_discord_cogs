@@ -66,21 +66,21 @@ class UserProfile:
     
     async def _downgrade_level(self, member):
         lvl = await self.data.member(member).level()
-        pastlvl = 5*((lvl-2)**2)+(500*(lvl-2)) +100
+        pastlvl = 5*((lvl-2)**2)+(500*(lvl-2)) +1000
         xp = await self.data.member(member).exp()
         while xp < pastlvl and not lvl <= 1:
             lvl -= 1
-            pastlvl = 5*((lvl-1)**2)+(500*(lvl-1)) +100
+            pastlvl = 5*((lvl-1)**2)+(500*(lvl-1)) +1000
         await self.data.member(member).level.set(lvl)
 
     async def _check_exp(self, member):
         lvl = await self.data.member(member).level()
-        lvlup = 5*((lvl-1)**2)+(500*(lvl-1)) +100
+        lvlup = 5*((lvl-1)**2)+(500*(lvl-1)) +1000
         xp = await self.data.member(member).exp()
         if xp >= lvlup:
             await self.data.member(member).level.set(lvl+1)
             lvl += 1
-            lvlup = 5*((lvl-1)**2)+(500*(lvl-1)) +100
+            lvlup = 5*((lvl-1)**2)+(500*(lvl-1)) +1000
             if xp >= lvlup:
                 await self._check_exp(member)
         elif xp < lvlup and lvl > 1:
@@ -169,7 +169,7 @@ class UserProfile:
         return await self.data.member(member).level()
 
     async def _get_xp_for_level(self, lvl):
-        return 5 * ((lvl - 1) ** 2) + (500 * (lvl - 1)) + 100
+        return 5 * ((lvl - 1) ** 2) + (500 * (lvl - 1)) + 1000
 
     async def _get_level_exp(self, member):
         lvl = await self.data.member(member).level()
