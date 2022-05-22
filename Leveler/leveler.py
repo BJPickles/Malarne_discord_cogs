@@ -611,7 +611,6 @@ class Leveler(commands.Cog):
         await ctx.send(member.name + _(" Level set to ") + str(level))
 
     @levelerset.command()
-    @checks.is_owner()
     @commands.has_any_role('Moderator', '91AR Officer', '91AR Subcommander', 'Developer', 'Bot Developer', 'Mod Team', 'Administrator')
     @commands.guild_only()
     async def setxp(self, ctx, xp: int, member: discord.Member = None):
