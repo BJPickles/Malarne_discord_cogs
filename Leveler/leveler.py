@@ -181,7 +181,7 @@ class Leveler(commands.Cog):
         img.paste(xpbar, (12, 340), xpbar)
 
         lvl_str = _("Level:")
-        ldb_str = _("Ranking:")
+        ldb_str = _("Leaderboard:")
         rank_str = _("Role:")
         prog_str = _("Progress:")
 
