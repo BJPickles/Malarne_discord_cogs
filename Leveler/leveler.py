@@ -373,7 +373,7 @@ class Leveler(commands.Cog):
         await ctx.send(embed=emb)
 
     @commands.group()
-    @commands.has_any_role('Moderator', '91AR Subcommander', 'Developer', 'Mod Team')
+    @commands.has_any_role('Corporal', 'Corporal I', 'Corporal II', 'Corporal III', 'Corporal IV', 'Lieutenant', 'Lieutenant I', 'Lieutenant II', 'Lieutenant III', 'Lieutenant IV', 'Lieutenant V', 'Subcommander', 'Commander', '91AR Subcommander', '91AR Commander')
     @commands.guild_only()
     async def levelerset(self, ctx):
         """Configuration commands."""
@@ -611,6 +611,7 @@ class Leveler(commands.Cog):
         await ctx.send(member.name + _(" Level set to ") + str(level))
 
     @levelerset.command()
+    @commands.has_any_role('Corporal', 'Corporal I', 'Corporal II', 'Corporal III', 'Corporal IV', 'Lieutenant', 'Lieutenant I', 'Lieutenant II', 'Lieutenant III', 'Lieutenant IV', 'Lieutenant V', 'Subcommander', 'Commander', '91AR Subcommander', '91AR Commander')
     @commands.guild_only()
     async def setxp(self, ctx, xp: int, member: discord.Member = None):
         """Modify an user's xp."""
