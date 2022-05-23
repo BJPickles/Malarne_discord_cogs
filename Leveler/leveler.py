@@ -611,7 +611,6 @@ class Leveler(commands.Cog):
         await ctx.send(member.name + _(" Level set to ") + str(level))
 
     @levelerset.command()
-    @commands.has_any_role('Corporal', 'Corporal I', 'Corporal II', 'Corporal III', 'Corporal IV', 'Lieutenant', 'Lieutenant I', 'Lieutenant II', 'Lieutenant III', 'Lieutenant IV', 'Lieutenant V', 'Subcommander', 'Commander')
     @commands.guild_only()
     async def setxp(self, ctx, xp: int, member: discord.Member = None):
         """Modify an user's xp."""
