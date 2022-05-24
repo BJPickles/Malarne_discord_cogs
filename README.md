@@ -1,5 +1,7 @@
 # discord_cogs V3 ONLY
 
+Credit goes to Malarne as the creator of this cog. I've just changed a few small things to suit the specific needs of a server.
+
 Install guide:
 
 `[p]repo add BJMalarneCogs https://github.com/BJPickles/Malarne_discord_cogs`
