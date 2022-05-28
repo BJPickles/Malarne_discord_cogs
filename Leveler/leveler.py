@@ -357,7 +357,7 @@ class Leveler(commands.Cog):
     async def toplevel(self, ctx):
         """Show the server leaderboard !"""
         ld = await self.profiles._get_leaderboard(ctx.guild)
-        emb = discord.Embed(title=_("Ranking"))
+        emb = discord.Embed(title=_("Highest Ranking Users"))
         for i in range(len(ld)):
             cur = ld[i]
             user = ctx.guild.get_member(cur["id"])
