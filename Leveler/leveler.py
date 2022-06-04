@@ -623,6 +623,20 @@ class Leveler(commands.Cog):
             await ctx.send(_("That user is not registered."))
         await ctx.send(member.name + _("'s XP set to ") + str(xp))
 
+    #notKai#8502's edit, that part of code is to request Malarne to implement it after Five#6640's bounty.
+    #The edit has been made for free.
+    @levelerset.command()
+    @checks.is_owner()
+    @commands.guild_only()
+    async def addxp(self, ctx: commands.Context, xp: int, member: discord.Member = None) -> None:
+        """Add xp to an user."""
+        member = member or ctx.author
+        if not await self.profiles._is_registered(member):
+            return await ctx.send(_("That user is not registered."))
+
+        await self.profiles._give_exp(member, xp)
+        await ctx.send(member.name + _('received XP.' + f"(+{xp} XP)"))    
+
     @levelerset.command()
     @checks.mod_or_permissions(manage_messages=True)
     @commands.guild_only()
