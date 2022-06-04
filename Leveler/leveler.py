@@ -626,10 +626,10 @@ class Leveler(commands.Cog):
     #notKai#8502's edit, that part of code is to request Malarne to implement it after Five#6640's bounty.
     #The edit has been made for free.
     @levelerset.command()
-    @checks.is_owner()
+    @commands.has_any_role('Developer', 'Corporal', 'Corporal I', 'Corporal II', 'Corporal III', 'Corporal IV', 'Lieutenant', 'Lieutenant I', 'Lieutenant II', 'Lieutenant III', 'Lieutenant IV', 'Lieutenant V', 'Subcommander', 'Commander', '91AR Subcommander', '91AR Commander')
     @commands.guild_only()
     async def addxp(self, ctx: commands.Context, xp: int, member: discord.Member = None) -> None:
-        """Add xp to an user."""
+        """Add xp to a user."""
         member = member or ctx.author
         if not await self.profiles._is_registered(member):
             return await ctx.send(_("That user is not registered."))
