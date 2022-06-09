@@ -628,14 +628,31 @@ class Leveler(commands.Cog):
     @levelerset.command()
     @commands.has_any_role('Developer', 'Corporal', 'Corporal I', 'Corporal II', 'Corporal III', 'Corporal IV', 'Lieutenant', 'Lieutenant I', 'Lieutenant II', 'Lieutenant III', 'Lieutenant IV', 'Lieutenant V', 'Subcommander', 'Commander', '91AR Subcommander', '91AR Commander')
     @commands.guild_only()
-    async def addxp(self, ctx: commands.Context, xp: int, member: discord.Member = None) -> None:
+    async def addxp(self, ctx: commands.Context, xp: int, *members: discord.Member) -> None:
         """Add xp to a user."""
-        member = member or ctx.author
-        if not await self.profiles._is_registered(member):
-            return await ctx.send(_("That user is not registered."))
+        failed: set[discord.Member] = set()
+        success: set[discord.Member] = set()
+        for member in members:
+            if not await self.profiles._is_registered(member):
+                failed.add(member)
+                continue
+            await self.profiles._give_exp(member, xp)
+            success.add(member)
 
-        await self.profiles._give_exp(member, xp)
-        await ctx.send(member.name + _('received XP.' + f"(+{xp} XP)"))    
+        success_added: str = ", ".join(success)
+        failed_added: str = ", ".join(failed)
+
+        msg: str = ""
+        if not success:
+            msg = "None of the users are registered."
+            await ctx.send(msg)
+            return
+
+        msg += f"Added {xp} XP to:\n `{success_added}`"
+        if failed:
+            msg += f"\nUnregistered users couldn't get XP:\n `{failed_added}`"
+
+        await ctx.send(msg)
 
     @levelerset.command()
     @checks.mod_or_permissions(manage_messages=True)
