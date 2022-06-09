@@ -629,7 +629,7 @@ class Leveler(commands.Cog):
     @commands.has_any_role('Developer', 'Corporal', 'Corporal I', 'Corporal II', 'Corporal III', 'Corporal IV', 'Lieutenant', 'Lieutenant I', 'Lieutenant II', 'Lieutenant III', 'Lieutenant IV', 'Lieutenant V', 'Subcommander', 'Commander', '91AR Subcommander', '91AR Commander')
     @commands.guild_only()
     async def addxp(self, ctx: commands.Context, xp: int, *members: discord.Member) -> None:
-        """Add xp to an user."""
+        """Add XP to users."""
         failed: set[discord.Member] = set()
         success: set[discord.Member] = set()
         for member in members:
