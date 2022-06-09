@@ -629,7 +629,7 @@ class Leveler(commands.Cog):
     @commands.has_any_role('Developer', 'Corporal', 'Corporal I', 'Corporal II', 'Corporal III', 'Corporal IV', 'Lieutenant', 'Lieutenant I', 'Lieutenant II', 'Lieutenant III', 'Lieutenant IV', 'Lieutenant V', 'Subcommander', 'Commander', '91AR Subcommander', '91AR Commander')
     @commands.guild_only()
     async def addxp(self, ctx: commands.Context, xp: int, *members: discord.Member) -> None:
-        """Add xp to a user."""
+        """Add xp to an user."""
         failed: set[discord.Member] = set()
         success: set[discord.Member] = set()
         for member in members:
@@ -647,7 +647,7 @@ class Leveler(commands.Cog):
             msg = "None of the users are registered."
             await ctx.send(msg)
             return
-
+        
         msg += f"Added {xp} XP to:\n `{success_added}`"
         if failed:
             msg += f"\nUnregistered users couldn't get XP:\n `{failed_added}`"
