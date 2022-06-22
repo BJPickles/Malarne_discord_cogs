@@ -310,9 +310,9 @@ class Leveler(commands.Cog):
                 return
 
         elif await self.profiles._is_registered(message.author):
-            if message.content:
-                if message.content[0] in await self.bot.get_prefix(message):
-                    return
+            #if message.content:
+            #   if message.content[0] in await self.bot.get_prefix(message):
+            #        return
             timenow = datetime.datetime.now().timestamp()
             lastmessage = await self.profiles._get_user_lastmessage(message.author)
             cooldown = await self.profiles._get_cooldown(message.guild)
