@@ -80,7 +80,7 @@ class UserProfile:
         if xp >= lvlup:
             await self.data.member(member).level.set(lvl+1)
             lvl += 1
-            lvlup = 5*((lvl-1)**2)+(50*(lvl-1)) +100
+            lvlup = 75*((lvl-1)**2)+(250*(lvl-1)) +250
             if xp >= lvlup:
                 await self._check_exp(member)
         elif xp < lvlup and lvl > 1:
