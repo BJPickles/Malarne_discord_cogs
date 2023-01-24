@@ -605,7 +605,7 @@ class Leveler(commands.Cog):
         if member is None:
             member = ctx.message.author
         if await self.profiles._is_registered(member):
-            await self.profiles._set_exp(member, 75 * ((level - 1) ** 2) + (50 * (level - 1)) + 50)
+            await self.profiles._set_exp(member, 2 * ((level - 1) ** 1) + (2 * (level - 1)) + 10)
         else:
             await ctx.send(_("That user is not registered."))
         await ctx.send(member.name + _(" Level set to ") + str(level))
