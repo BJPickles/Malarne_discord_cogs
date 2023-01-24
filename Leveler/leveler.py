@@ -373,7 +373,7 @@ class Leveler(commands.Cog):
         await ctx.send(embed=emb)
 
     @commands.group()
-    @commands.has_any_role('Developer', 'Corporal', 'Corporal I', 'Corporal II', 'Corporal III', 'Corporal IV', 'Lieutenant', 'Lieutenant I', 'Lieutenant II', 'Lieutenant III', 'Lieutenant IV', 'Lieutenant V', 'Subcommander', 'Commander', '91AR Subcommander', '91AR Commander')
+    @commands.has_any_role('Developer')
     @commands.guild_only()
     async def levelerset(self, ctx):
         """Configuration commands."""
@@ -605,13 +605,13 @@ class Leveler(commands.Cog):
         if member is None:
             member = ctx.message.author
         if await self.profiles._is_registered(member):
-            await self.profiles._set_exp(member, 75 * ((level - 1) ** 2) + (250 * (level - 1)) + 250)
+            await self.profiles._set_exp(member, 75 * ((level - 1) ** 2) + (50 * (level - 1)) + 50)
         else:
             await ctx.send(_("That user is not registered."))
         await ctx.send(member.name + _(" Level set to ") + str(level))
 
     @levelerset.command()
-    @commands.has_any_role('Developer', 'Corporal', 'Corporal I', 'Corporal II', 'Corporal III', 'Corporal IV', 'Lieutenant', 'Lieutenant I', 'Lieutenant II', 'Lieutenant III', 'Lieutenant IV', 'Lieutenant V', 'Subcommander', 'Commander', '91AR Subcommander', '91AR Commander')
+    @commands.has_any_role('Developer')
     @commands.guild_only()
     async def setxp(self, ctx, xp: int, member: discord.Member = None):
         """Modify an user's xp."""
@@ -626,7 +626,7 @@ class Leveler(commands.Cog):
     #notKai#8502's edit, that part of code is to request Malarne to implement it after Five#6640's bounty.
     #The edit has been made for free.
     @levelerset.command()
-    @commands.has_any_role('Developer', 'Corporal', 'Corporal I', 'Corporal II', 'Corporal III', 'Corporal IV', 'Lieutenant', 'Lieutenant I', 'Lieutenant II', 'Lieutenant III', 'Lieutenant IV', 'Lieutenant V', 'Subcommander', 'Commander', '91AR Subcommander', '91AR Commander')
+    @commands.has_any_role('Developer')
     @commands.guild_only()
     async def addxp(self, ctx: commands.Context, xp: int, *members: discord.Member) -> None:
         """Add XP to a user."""
